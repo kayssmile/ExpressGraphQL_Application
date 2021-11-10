@@ -1,0 +1,27 @@
+{
+  "name": "backend_application",
+  "version": "1.0.0",
+  "description": "Backend_Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayssmile/Backend_Application.git"
+  },
+  "author": "Kay Hertenstein",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/kayssmile/Backend_Application/issues"
+  },
+  "homepage": "https://github.com/kayssmile/Backend_Application#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^16.0.1",
+    "mysql2": "^2.3.3-rc.0"
+  }
+}
