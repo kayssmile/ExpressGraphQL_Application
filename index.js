@@ -14,14 +14,13 @@ import mysql from 'mysql2/promise';
 // Datenbank integrieren
 
 const connection = await mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "estates"
+    host: "sql11.freemysqlhosting.net",
+    user: "sql11450647",
+    password: "xlGxLvQIde",
+    database: "sql11450647"
 });
 
  
-
 
 
 
