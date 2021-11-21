@@ -13,7 +13,7 @@
   },
   "author": "Kay Hertenstein",
   "license": "ISC",
-  "type": "module",
+   "type": "module",
   "bugs": {
     "url": "https://github.com/kayssmile/Backend_Application/issues"
   },

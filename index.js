@@ -4,10 +4,6 @@ import express from 'express';
 import { ApolloServer, gql} from 'apollo-server-express';
 import cors from 'cors';
 import mysql from 'mysql2/promise';
-// import fetch from 'node-fetch';
-
-
-
 
 
 
@@ -19,8 +15,6 @@ const connection = await mysql.createConnection({
     password: "xlGxLvQIde",
     database: "sql11450647"
 });
-
- 
 
 
 
@@ -47,6 +41,10 @@ const typeDefs = gql`
         ref_type_id: Int!
         created_at: String!
         updated_at: String!
+        img: String!
+        img1: String!
+        img2: String!
+        img3: String!
     }
 
 `;
@@ -58,9 +56,6 @@ const resolvers = {
         estates: async (obj, args, context, info) => {
             let [result] = await context.db.execute(`
             SELECT * FROM estates`);
-
-           // console.log(result);
-
             return result;
         },
     }
@@ -86,7 +81,7 @@ server.applyMiddleware({ app });
 
    
 app.listen({ port: parseInt(process.env.PORT || 4000 ) }, () =>    // ({ port: parseInt(process.env.PORT || 4000 )}
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+    console.log(`🚀 Server ready at https://backend-appli.herokuapp.com/graphql`)  //  http://localhost:4000${server.graphqlPath}`)
   );
    
 
