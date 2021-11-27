@@ -1,13 +1,15 @@
-// import functions 
+/*  GraphQL Backend Application
+--------------------------------------------------------------*/
+/* Application : Dependencies                                                                                                                                                                         Head Heart Web <3 Consult your WebDoc about Middleware, Margin and Padding 
+-------------------------------------------------------------- */
 
 import express from 'express';
 import { ApolloServer, gql} from 'apollo-server-express';
 import cors from 'cors';
 import mysql from 'mysql2/promise';
 
-
-
-// Datenbank integrieren
+/* Data base Connection                                                                                                                                                                       Head Heart Web <3 Consult your WebDoc about Middleware, Margin and Padding 
+-------------------------------------------------------------- */
 
 const connection = await mysql.createConnection({
     host: "sql11.freemysqlhosting.net",
@@ -16,7 +18,8 @@ const connection = await mysql.createConnection({
     database: "sql11450647"
 });
 
-
+/* GraphQL Queries                                                                                                                                                                      Head Heart Web <3 Consult your WebDoc about Middleware, Margin and Padding 
+-------------------------------------------------------------- */
 
 const typeDefs = gql`
 
@@ -49,7 +52,8 @@ const typeDefs = gql`
 
 `;
 
-// Resolver
+/* GraphQL Resolver                                                                                                                                                                     Head Heart Web <3 Consult your WebDoc about Middleware, Margin and Padding 
+-------------------------------------------------------------- */
 
 const resolvers = {
         Query: {
@@ -61,6 +65,8 @@ const resolvers = {
     }
 };
 
+/* Server Init / Start                                                                                                                                                                      Head Heart Web <3 Consult your WebDoc about Middleware, Margin and Padding 
+-------------------------------------------------------------- */
 
 const server = new ApolloServer({
     typeDefs,
@@ -71,21 +77,18 @@ const server = new ApolloServer({
 });
 
 await server.start();
-
-// const server = new ApolloServer({ typeDefs, resolvers });
-// await server.start();
    
 const app = express();
 app.use(cors()); // Erlaubt CORS Requests
 server.applyMiddleware({ app });
-
+  
+app.listen({ port: parseInt(process.env.PORT || 4000 ) }, () => {
+    console.log(`🚀 Server ready at https://backend-appli.herokuapp.com/graphql`);
+});
    
-app.listen({ port: parseInt(process.env.PORT || 4000 ) }, () =>    // ({ port: parseInt(process.env.PORT || 4000 )}
-    console.log(`🚀 Server ready at https://backend-appli.herokuapp.com/graphql`)  //  http://localhost:4000${server.graphqlPath}`)
-  );
-   
 
-// Verbindung abbauen
+/* Server Shut-down                                                                                                                                                                      Head Heart Web <3 Consult your WebDoc about Middleware, Margin and Padding 
+-------------------------------------------------------------- */
 
 const shutdownHandler = () => {
     console.log('closing all connections...');
